@@ -1,27 +1,19 @@
-const buttonSum = document.getElementById('sum')
-const buttonMult = document.getElementById('mult')
+
+const sum = document.getElementById('sum')
 const inputRes = document.getElementById('res')
 
-const calculator = {
-  init: function(){
-    buttonSum.addEventListener('click', this.sum.bind(this))
-    buttonMult.addEventListener('click', this.mult.bind(this))
-  },
-  sum: function(){
-    const a = +document.getElementById('a').value
-    const b = +document.getElementById('b').value
-    this.show(a + b)
-  },
-  mult: function(){
-    const a = +document.getElementById('a').value
-    const b = +document.getElementById('b').value
-    this.show(a * b)
-  },
-  show: function(res){
-    inputRes.value = res
-  }
-}
+sum.addEventListener('click', function getResult(){
+  const x = document.getElementById('x').value
+  const y = document.getElementById('y').value
 
-calculator.init()
+  let result = Math.pow(x, y);
+  console.log(result);
+  result = ('' + result).split('').reduce(function (sum, val) {
+    return sum + +val}, 0)
+  // ваш код
+  inputRes.value = result
+
+  return result
+})
 
 
