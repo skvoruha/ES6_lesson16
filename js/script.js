@@ -1,29 +1,27 @@
+const buttonSum = document.getElementById('sum')
+const buttonMult = document.getElementById('mult')
+const inputRes = document.getElementById('res')
 
-// Напишите расширения метода прототипа:
-// 1) Два класса, First и Second, Second наследует от First .
-// 2) В First есть метод hello - он печатает в консоль "Привет я метод родителя!".
-// 3) Нужно написать в Second метод hello, чтоб он сначала вызывал метод hello из First, а потом сразу печатал в консоль "А я наследуемый метод!"
-// Проверить, чтобы все работало без ошибок в консоли
-// Запушить задание в репозиторий на github или реализовать на доске CodePen и прикрепить ссылку
-'use strict'
-
-// создаём класса First
-class First{
-  // вывзываем метод hello с выводом в консоль
-  hello(){
-    console.log('Привет я метод родителя!');
+const calculator = {
+  init: function(){
+    buttonSum.addEventListener('click', this.sum.bind(this))
+    buttonMult.addEventListener('click', this.mult.bind(this))
+  },
+  sum: function(){
+    const a = +document.getElementById('a').value
+    const b = +document.getElementById('b').value
+    this.show(a + b)
+  },
+  mult: function(){
+    const a = +document.getElementById('a').value
+    const b = +document.getElementById('b').value
+    this.show(a * b)
+  },
+  show: function(res){
+    inputRes.value = res
   }
 }
-// создаем класс Second которые наследует параметры класса First
-class Second extends First{
-  // вызываем метод hello
-  hello(){
-    // вывзваем метод hello котороый унаследовали от First класса
-    super.hello()
-    // выводми в консоль текст еще
-    console.log("А я наследуемый метод!");
-  }
-}
-// создаём объект
-const first = new Second
-first.hello()
+
+calculator.init()
+
+
