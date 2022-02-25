@@ -2,7 +2,7 @@
 const sum = document.getElementById('sum')
 const inputRes = document.getElementById('res')
 
-sum.addEventListener('click', function getResult(){
+const getResult = function(){
   const x = document.getElementById('x').value
   const y = document.getElementById('y').value
 
@@ -14,6 +14,6 @@ sum.addEventListener('click', function getResult(){
   inputRes.value = result
 
   return result
-})
+}
 
-
+sum.addEventListener('click', getResult)
