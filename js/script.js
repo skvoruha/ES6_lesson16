@@ -7,15 +7,16 @@ const calculator = {
     buttonSum.addEventListener('click', this.sum.bind(this))
     buttonMult.addEventListener('click', this.mult.bind(this))
   },
-  sum: function(){
+  value: function(){
     const a = +document.getElementById('a').value
     const b = +document.getElementById('b').value
-    this.show(a + b)
+    return [a, b]
+  },
+  sum: function(){
+    this.show(this.value()[0] + this.value()[1])
   },
   mult: function(){
-    const a = +document.getElementById('a').value
-    const b = +document.getElementById('b').value
-    this.show(a * b)
+    this.show(this.value()[0] * this.value()[1])
   },
   show: function(res){
     inputRes.value = res
